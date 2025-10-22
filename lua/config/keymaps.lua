@@ -105,3 +105,7 @@ vkms('n', '<leader>ff', function() require('telescope.builtin').find_files() end
 vkms('n', '<leader>fg', function() require('telescope.builtin').live_grep() end, silent)
 vkms('n', '<leader>fb', function() require('telescope.builtin').buffers() end, silent)
 vkms('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, silent)
+
+-- fold makdown
+vim.keymap.set('n', 'zR', function() require('ufo').openAllFolds() end, { desc = 'Open all folds' })
+vim.keymap.set('n', 'zM', function() require('ufo').closeAllFolds() end, { desc = 'Close all folds' })

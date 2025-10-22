@@ -69,3 +69,8 @@ vim.opt.shortmess:append { W = true, I = true, c = true, C = true }
 
 vim.opt.spelllang = { "en" }
 vim.opt.spelloptions:append "noplainbuffer" -- Only spellcheck a buffer when 'syntax' is enabled,
+
+-- fold markdown
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
