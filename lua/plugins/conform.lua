@@ -1,7 +1,12 @@
+-- lua/plugins/conform.lua
 return {
   {
     'stevearc/conform.nvim',
-    event = 'BufWritePre',
+    event = { 'BufReadPre', 'BufNewFile' }, -- load before first save
+    cmd = { 'ConformInfo', 'Format' },
+    keys = {
+      { '<leader>cf', function() require('conform').format({ async = true }) end, desc = 'Format buffer' },
+    },
     opts = {
       notify_on_error = false,
       format_on_save = function(buf)
@@ -10,9 +15,9 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        json = { 'jq' }, -- simple formatter; switch to 'prettierd' if you prefer
-        yaml = { 'prettierd' },
-        markdown = { 'prettierd' },
+        json = { 'prettierd', 'prettier' },
+        yaml = { 'prettierd', 'prettier' },
+        markdown = { 'prettierd', 'prettier' },
         sh = { 'shfmt' },
         bash = { 'shfmt' },
         zsh = { 'shfmt' },

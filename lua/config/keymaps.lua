@@ -37,12 +37,12 @@ vkms('n', '<leader>sf', '1z=', { desc = 'Spell first' })
 vkms('n', '<leader>sn', ']s', { desc = 'Spell next' })
 vkms('n', '<leader>sp', '[s', { desc = 'Spell prev' })
 
--- remove Marks* bindings unless you add a marks plugin
-vkms('n', '<Tab>x', '<cmd>.lua<CR>', { desc = 'Execute current line' })
-vkms('n', '<Tab><Tab>x', '<cmd>source %<CR>', { desc = 'Execute current file' })
-vkms('n', '<Tab>tc', _G.ToggleCursorColumn, { desc = 'Toggle Cursor Column' })
-vkms('n', '<Tab>tm', _G.ToggleMouse, { desc = 'Toggle Mouse' })
-vkms('n', '<Tab>ts', _G.toggle_spell_check, { desc = 'Toggle spell' })
+-- Leader + Tab
+vkms('n', '<leader><Tab>x', '<cmd>.lua<CR>', { desc = 'Execute current line' })
+vkms('n', '<leader><Tab><Tab>x', '<cmd>source %<CR>', { desc = 'Execute current file' })
+vkms('n', '<leader><Tab>tc', _G.ToggleCursorColumn, { desc = 'Toggle Cursor Column' })
+vkms('n', '<leader><Tab>tm', _G.ToggleMouse, { desc = 'Toggle Mouse' })
+vkms('n', '<leader><Tab>ts', _G.toggle_spell_check, { desc = 'Toggle spell' })
 
 -- Ctrl/navigation
 vkms('n', '<C-d>', '<C-d>zz', { desc = 'Half-page down centered' })
@@ -101,7 +101,11 @@ vkms('n', ']w', diagnostic_goto(true, 'WARN'), { desc = 'Next warning' })
 vkms('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'Prev warning' })
 
 -- telescope
-vkms('n', '<leader>ff', function() require('telescope.builtin').find_files() end, silent)
-vkms('n', '<leader>fg', function() require('telescope.builtin').live_grep() end, silent)
-vkms('n', '<leader>fb', function() require('telescope.builtin').buffers() end, silent)
-vkms('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, silent)
+vkms('n', '<leader>ff', function() require('telescope.builtin').find_files() end,
+  { desc = 'Find files in project', silent = true })
+vkms('n', '<leader>fg', function() require('telescope.builtin').live_grep() end,
+  { desc = 'Search text in files (live grep)', silent = true })
+vkms('n', '<leader>fb', function() require('telescope.builtin').buffers() end,
+  { desc = 'List open buffers', silent = true })
+vkms('n', '<leader>fh', function() require('telescope.builtin').help_tags() end,
+  { desc = 'Search Neovim help tags', silent = true })
