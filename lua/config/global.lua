@@ -1,3 +1,10 @@
+-- Disable unused providers
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+
+-- Optional: explicitly set Python provider path if you use a venv or custom python
+-- vim.g.python3_host_prog = '/usr/bin/python3'
+
 -- Define a global function for toggling spell check
 _G.toggle_spell_check = function()
   vim.opt_local.spell = not vim.opt_local.spell:get()
