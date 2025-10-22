@@ -7,8 +7,8 @@ return {
       highlight = { enable = true },
       indent = { enable = true, disable = { 'yaml' } },
       ensure_installed = {
-        'lua', 'vim', 'vimdoc', 'bash', 'json', 'yaml', 'markdown', 'markdown_inline',
-        'dockerfile', 'terraform', 'hcl'
+        'lua','vim','vimdoc','bash','json','yaml','markdown','markdown_inline',
+        'dockerfile','terraform','hcl'
       },
     },
   },

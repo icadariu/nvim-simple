@@ -13,11 +13,9 @@ return {
         json = { 'jsonlint' },
         sh = { 'shellcheck' },
         bash = { 'shellcheck' },
-        zsh = { 'shellcheck' }, -- 'zsh' linter rarely installed; use shellcheck
+        zsh = { 'shellcheck' },
       }
-
-      -- Run lint only when filetype has a configured linter
-      vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {
+      vim.api.nvim_create_autocmd({ 'BufWritePost','BufReadPost','InsertLeave' }, {
         callback = function()
           local ft = vim.bo.filetype
           if lint.linters_by_ft[ft] then
