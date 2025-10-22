@@ -30,9 +30,12 @@
   ```sh
   sudo apt update
   sudo apt install -y make gcc unzip git xclip curl cargo luarocks fd-find python3-pip python3-neovim python3-yamlfix shellcheck \
-  ansible-lint shellcheck markdownlint yamllint jq shfmt
+  ansible-lint markdownlint-cli yamllint jq shfmt
 
   sudo snap install --classic ripgrep nvim tflint
+
+  # add stylua
+  python3 -m pip install --user pynvim stylua
 
   # Sync plugins and lock versions:
   nvim --headless "+Lazy! sync" +qa
