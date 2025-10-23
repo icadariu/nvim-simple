@@ -99,13 +99,3 @@ vkms('n', ']e', diagnostic_goto(true, 'ERROR'), { desc = 'Next error' })
 vkms('n', '[e', diagnostic_goto(false, 'ERROR'), { desc = 'Prev error' })
 vkms('n', ']w', diagnostic_goto(true, 'WARN'), { desc = 'Next warning' })
 vkms('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'Prev warning' })
-
--- telescope
-vkms('n', '<leader>ff', function() require('telescope.builtin').find_files() end,
-  { desc = 'Find files in project', silent = true })
-vkms('n', '<leader>fg', function() require('telescope.builtin').live_grep() end,
-  { desc = 'Search text in files (live grep)', silent = true })
-vkms('n', '<leader>fb', function() require('telescope.builtin').buffers() end,
-  { desc = 'List open buffers', silent = true })
-vkms('n', '<leader>fh', function() require('telescope.builtin').help_tags() end,
-  { desc = 'Search Neovim help tags', silent = true })

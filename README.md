@@ -10,6 +10,11 @@
 
 - Check `docs` folder for different tips & tricks.
 
+## Tips
+
+- Use `s + letter` → Flash jump 
+- Use `<leader>fk` → Telescope keymaps
+
 ## Installation
 
 ### External Dependencies
@@ -48,6 +53,13 @@
   echo 'export PATH="$HOME/.npm-packages/bin:$PATH"' >> ~/.zshrc
 
   ```
+
+### Installing on MacOs
+
+    ```sh
+    brew install neovim stylua ripgrep pinentry-mac
+    brew install --cask font-meslo-lg-nerd-font
+    ```
 
 ## FAQ
 
