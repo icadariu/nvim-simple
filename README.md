@@ -10,6 +10,11 @@
 
 - Check `docs` folder for different tips & tricks.
 
+## Tips
+
+- Use `s + letter` → Flash jump 
+- Use `<leader>fk` → Telescope keymaps
+
 ## Installation
 
 ### External Dependencies
@@ -36,6 +41,13 @@
   # Sync plugins and lock versions:
   nvim --headless "+Lazy! sync | Lazy! lock" +qa
   ```
+
+### Installing on MacOs
+
+    ```sh
+    brew install neovim stylua ripgrep pinentry-mac
+    brew install --cask font-meslo-lg-nerd-font
+    ```
 
 ## FAQ
 
