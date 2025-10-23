@@ -34,12 +34,24 @@
 
   ```sh
   sudo apt update
-  sudo apt install -y make gcc unzip git xclip curl cargo luarocks fd-find python3-pip python3-neo python3-yamlfix shellcheck ansible-lint shellcheck markdownlint yamllint jq shfmt
+  sudo apt install -y make gcc unzip git xclip curl cargo luarocks fd-find python3-pip python3-neovim python3-yamlfix shellcheck \
+  ansible-lint markdownlint-cli yamllint jq shfmt
 
   sudo snap install --classic ripgrep nvim tflint
 
+  # add stylua
+  python3 -m pip install --user pynvim stylua
+
   # Sync plugins and lock versions:
-  nvim --headless "+Lazy! sync | Lazy! lock" +qa
+  nvim --headless "+Lazy! sync" +qa
+  ```
+
+- install prettier
+
+  ```sh
+  npm i -g @fsouza/prettierd prettier
+  echo 'export PATH="$HOME/.npm-packages/bin:$PATH"' >> ~/.zshrc
+
   ```
 
 ### Installing on MacOs

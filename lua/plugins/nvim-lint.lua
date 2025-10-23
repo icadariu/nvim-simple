@@ -5,19 +5,23 @@ return {
     config = function()
       local lint = require('lint')
       lint.linters_by_ft = {
+        yaml = { 'yamllint' },
         ansible = { 'ansible_lint' },
-        yaml = { 'yamllint' }, -- many Ansible files are yaml; add ansible ft if you use an ftplugin
         dockerfile = { 'hadolint' },
         markdown = { 'markdownlint' },
-        terraform = { 'terraform_validate', 'tflint', 'tfsec' },
+        terraform = { 'tflint', 'tfsec', 'terraform_validate' },
         json = { 'jsonlint' },
         sh = { 'shellcheck' },
         bash = { 'shellcheck' },
-        zsh = { 'zsh' },
+        zsh = { 'shellcheck' },
       }
-
-      vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {
-        callback = function() require('lint').try_lint() end,
+      vim.api.nvim_create_autocmd({ 'BufWritePost','BufReadPost','InsertLeave' }, {
+        callback = function()
+          local ft = vim.bo.filetype
+          if lint.linters_by_ft[ft] then
+            lint.try_lint()
+          end
+        end,
       })
     end,
   },
