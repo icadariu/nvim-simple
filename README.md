@@ -57,7 +57,7 @@
 ### Installing on MacOs
 
     ```sh
-    brew install neovim stylua ripgrep pinentry-mac
+    brew install neovim stylua ripgrep pinentry-mac shellcheck
     brew install --cask font-meslo-lg-nerd-font
     ```
 
