@@ -10,10 +10,30 @@
 
 - Check `docs` folder for different tips & tricks.
 
-## Tips
+## Tips & Tricks
 
-- Use `s + letter` → Flash jump 
-- Use `<leader>fk` → Telescope keymaps
+### Navigation
+- **Flash Jump**: Press `s` followed by the label character to jump anywhere on screen.
+- **Enhanced Search**: Press `f`, `F`, `t`, or `T` followed by a character. Labels will appear for all matches; type a label to jump directly there.
+
+### File & Window Management
+- **Find Files**: `<leader>f` opens Telescope to find files.
+- **Buffers**:
+    - Cycle: `<C-n>` (next) / `<C-p>` (prev)
+    - Jump: `<leader>1` through `<leader>4`
+    - Close: `<leader>x`
+- **Windows**:
+    - Move: `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>`
+    - Resize: `<A-Left>`, `<A-Right>`, `<A-Up>`, `<A-Down>`
+
+### Diagnostics & Code
+- **Navigate Errors**: `[d` (previous) / `]d` (next)
+- **Lazy**: `<leader>l` to open Lazy package manager.
+- **Surround (mini.surround)**:
+    - Add: `gsa` + motion + char (e.g., `gsaiw"` to surround word with quotes)
+    - Delete: `gsd` + char
+    - Replace: `gsr` + old_char + new_char
+- **Keymaps**: `<leader>fk` to search keymaps via Telescope.
 
 ## Installation
 

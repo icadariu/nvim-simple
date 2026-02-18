@@ -83,7 +83,7 @@ vkms({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true,
 
 -- Disable keys
 vkms('n', 'Q', '<nop>', { desc = 'Disable Q' })
-vkms('n', 's', '<nop>', { desc = 'Disable s', noremap = true })
+
 
 -- Diagnostics
 vkms('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line diagnostics' })
