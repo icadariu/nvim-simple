@@ -11,10 +11,13 @@ return {
         markdown = { 'markdownlint' },
         terraform = { 'tflint', 'tfsec', 'terraform_validate' },
         json = { 'jsonlint' },
-        sh = { 'shellcheck' },
-        bash = { 'shellcheck' },
-        zsh = { 'shellcheck' },
       }
+
+      if vim.fn.executable('shellcheck') == 1 then
+        lint.linters_by_ft.sh = { 'shellcheck' }
+        lint.linters_by_ft.bash = { 'shellcheck' }
+        lint.linters_by_ft.zsh = { 'shellcheck' }
+      end
       vim.api.nvim_create_autocmd({ 'BufWritePost','BufReadPost','InsertLeave' }, {
         callback = function()
           local ft = vim.bo.filetype
