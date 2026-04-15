@@ -1,24 +1,26 @@
 # Good to know
 
-## Shortcuts
-
-* Check custom keymaps [here](../lua/configs/keymaps.lua) will help.
-* Disable format using `<leader>uf`
+* Check custom [keymaps.lua](../lua/config/keymaps.lua).
+* Toggle auto-format on save using `<leader>uf`.
 
 ## Tips & Tricks
 
 * `Alt+h/l` in insert mode - move cursor left or right.
 * `Alt+j/k` in insert mode - move cursor line up/down.
 * `Ctrl+y` accept autocomplete suggestions.
+* `gc` (motion) or `gcc` (line) to toggle comments (Neovim 10+ native).
 
 * Using `s` will activate `flash` plugin, allowing fast movement inside the code.
 
-* Check available custom keymaps using whichkey plugin:
+* Check available custom keymaps using which-key plugin:
   * Using `<leader>?`
-  * Using Telescope search keymaps - `<leader>sk`
+  * Using Telescope search keymaps - `<leader>fk`
+
+* **Auto-trim**: Trailing whitespace is automatically removed on save.
 
 * **Diagnostics**
-  * `[d or ]d` - jump between identified issues
+  * `[d` or `]d` - jump between identified issues.
+  * `<leader>cd` - open detailed diagnostics in a float.
 
 * **Marks**
   * view marks: `:marks`

@@ -10,7 +10,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
@@ -48,17 +48,16 @@ vim.opt.timeoutlen = 300
 vim.opt.list = false
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
-
 vim.opt.smartindent = true
-vim.opt.shiftwidth = 2       -- Size of an indent
-vim.opt.textwidth = 200      -- Line size
+vim.opt.shiftwidth = 2 -- Size of an indent
+vim.opt.textwidth = 200 -- Line size
 
 vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
 
-vim.opt.cursorline = true    -- Show which line your cursor is on
+vim.opt.cursorline = true -- Show which line your cursor is on
 vim.opt.cursorcolumn = false -- Shows cursor vertical position
 
-vim.opt.conceallevel = 0     -- disable cncealment in markdown
+vim.opt.conceallevel = 0 -- disable cncealment in markdown
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 8
@@ -74,3 +73,22 @@ vim.opt.spelloptions:append "noplainbuffer" -- Only spellcheck a buffer when 'sy
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
+
+-- [[ Autocommands ]]
+
+-- Trim trailing whitespace on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    local save_cursor = vim.fn.getpos "."
+    vim.cmd [[%s/\s\+$//e]]
+    vim.fn.setpos(".", save_cursor)
+  end,
+})
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})

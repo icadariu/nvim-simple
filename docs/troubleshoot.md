@@ -11,15 +11,12 @@
 * check lsp log - `~/.local/state/nvim/lsp.log`
 * Or do something like:
 
-  ```txt
-  :lua vim.diagnostic.setqflist():q
-
-  # open the issues using
+  ```vim
+  :lua vim.diagnostic.setqflist()
   :copen
-
   ```
 
-* Why my values got changed?
+* To check which script changed your file:
 
   ```markdown
   *  Let's say we have shiftwidth tabstop softtabstop set to 2

@@ -14,9 +14,28 @@ require "config.keymaps"
 require "config.global"
 
 require("lazy").setup("plugins", {
+  defaults = { lazy = true },
+  checker = { enabled = true, notify = false },
   change_detection = { notify = false },
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "catppuccin", "habamax" } },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
 })
 
--- set default theme
-vim.cmd.colorscheme "habamax"
+-- The colorscheme is set in lua/plugins/color_themes.lua
+-- but we can have a fallback here just in case.
+if not vim.g.colors_name then
+  vim.cmd.colorscheme "habamax"
+end
