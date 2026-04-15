@@ -8,7 +8,7 @@
   - [grepm11n](https://github.com/grem11n/dotfiles/tree/master/config/nvim)
   - [bshephar kickstart](https://github.com/bshephar/kickstart-nvim)
 
-- Check `docs` folder for different tips & tricks.
+- Check `docs` folder for different tips & tricks and [Maintenance & Configuration](docs/maintenance.md).
 
 ## Tips & Tricks
 
