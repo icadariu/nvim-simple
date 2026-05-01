@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script used to set up the icadariu/nvim repository from scratch
+# Script used to set up the icadariu/nvim-simple repository from scratch
 # Author: Ionut
 # Date: 02.11.2024
 
@@ -93,8 +93,8 @@ if ! is_installed "git"; then
 fi
 
 # Clone the nvim configuration repository
-echo "Cloning icadariu/nvim to $HOME/.config/nvim"
-git clone https://github.com/icadariu/nvim.git "$HOME/.config/nvim"
+echo "Cloning icadariu/nvim-simple to $HOME/.config/nvim"
+git clone https://github.com/icadariu/nvim-simple.git "$HOME/.config/nvim"
 
 # Check and install nvim
 if ! is_installed "nvim"; then
