@@ -18,7 +18,11 @@ return {
       wk.add {
         { "<leader>f", group = "find" },
         { "<leader>b", group = "buffers" },
-        { "<leader>x", group = "diagnostics" },
+        { "<leader>X", group = "trouble/diagnostics" },
+        { "<leader>s", group = "spell" },
+        { "<leader>c", group = "code/copy" },
+        { "<leader><Tab>", group = "toggles" },
+        { "<leader>u", group = "ui-toggles" },
       }
     end,
   },

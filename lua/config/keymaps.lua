@@ -2,12 +2,12 @@ local utils = require "utils"
 local vkms = vim.keymap.set
 
 vkms("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
-vkms("n", "<leader>qq", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
+vkms("n", "<leader>bq", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
 vkms("n", "<leader>cf", '<cmd>let @+ = expand("%")<CR>', { desc = "Copy File Name" })
 vkms("n", "<leader>cp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Copy File Path" })
 vkms("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
 vkms("n", "<leader>QQ", "<cmd>qa!<cr>", { desc = "Quit All" })
-vkms("n", "<leader>qb", "<cmd>bd!<CR>", { desc = "Force Close Buffer" })
+vkms("n", "<leader>bQ", "<cmd>bd!<CR>", { desc = "Force Close Buffer" })
 vkms("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
 vkms("n", "<leader>ui", vim.show_pos, { desc = "Inspect current Position using Treesitter position" })
 vkms("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting register" })

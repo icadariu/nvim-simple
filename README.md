@@ -64,8 +64,11 @@
 
   sudo snap install --classic ripgrep nvim tflint
 
-  # add stylua
-  python3 -m pip install --user pynvim stylua
+  # python provider for nvim
+  python3 -m pip install --user pynvim
+
+  # stylua is a Rust binary, install via cargo (or `snap install stylua`)
+  cargo install stylua
 
   # Sync plugins and lock versions:
   nvim --headless "+Lazy! sync" +qa
