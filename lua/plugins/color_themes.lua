@@ -30,8 +30,5 @@ return {
       vim.cmd.colorscheme "gruvbox"
     end,
   },
-  { "catppuccin/nvim", name = "catppuccin", lazy = true },
-  { "folke/tokyonight.nvim", lazy = true },
   { "nvim-tree/nvim-web-devicons", opts = {} },
-  { "rmehri01/onenord.nvim", lazy = true },
 }
