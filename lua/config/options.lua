@@ -20,7 +20,6 @@ vim.opt.softtabstop = 2
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.updatetime = 200
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
@@ -49,7 +48,6 @@ vim.opt.list = false
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.opt.smartindent = true
-vim.opt.shiftwidth = 2 -- Size of an indent
 vim.opt.textwidth = 200 -- Line size
 
 vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
