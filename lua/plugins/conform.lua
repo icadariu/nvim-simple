@@ -27,13 +27,13 @@ return {
       end,
       formatters_by_ft = {
         lua = { "stylua" },
-        json = { "prettierd", "prettier" },
-        yaml = { "prettierd", "prettier" },
-        markdown = { "prettierd", "prettier" },
+        json = { "prettierd", "prettier", stop_after_first = true },
+        yaml = { "prettierd", "prettier", stop_after_first = true },
+        markdown = { "prettierd", "prettier", "markdownlint", stop_after_first = true },
         sh = { "shfmt" },
         bash = { "shfmt" },
         zsh = {}, -- no formatter
-        terraform = { "terraform_fmt" },
+        terraform = vim.fn.executable "terraform" == 1 and { "terraform_fmt" } or nil,
       },
       -- optional: configure shfmt (uncomment to force 2-space indent)
       -- formatters = {
