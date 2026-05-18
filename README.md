@@ -82,10 +82,22 @@
 
   ```
 
+### Formatters
+
+| Filetype | Formatter | Linux (Ubuntu) | macOS |
+|---|---|---|---|
+| Lua | `stylua` | `snap install stylua` / `cargo install stylua` | `brew install stylua` |
+| JSON, YAML, Markdown | `prettierd` / `prettier` | `npm i -g @fsouza/prettierd prettier` | `npm i -g @fsouza/prettierd prettier` |
+| Shell (`sh`/`bash`) | `shfmt` | `apt install shfmt` / `go install mvdan.cc/sh/v3/cmd/shfmt@latest` | `brew install shfmt` |
+| Terraform | `terraform_fmt` | `snap install terraform --classic` | `brew install terraform` |
+| Go | `goimports`* | `go install golang.org/x/tools/cmd/goimports@latest` | `go install golang.org/x/tools/cmd/goimports@latest` |
+
+\* Go formatter is not yet wired in `conform.lua`. Add `go = { "goimports" }` to `formatters_by_ft` to enable it.
+
 ### Installing on MacOs
 
 ```sh
-brew install neovim stylua ripgrep pinentry-mac shellcheck
+brew install neovim stylua ripgrep pinentry-mac shellcheck shfmt
 brew install --cask font-meslo-lg-nerd-font
 ```
 
