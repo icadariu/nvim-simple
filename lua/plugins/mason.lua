@@ -12,6 +12,7 @@ return {
         "prettierd",
         "shfmt",
         "stylua",
+        "yamlfmt",
       },
     },
   },
