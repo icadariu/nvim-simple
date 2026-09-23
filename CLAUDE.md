@@ -19,7 +19,7 @@ Cross-cutting wiring worth knowing:
 
 - **Formatting** is centralized in `lua/plugins/conform.lua`. Format-on-save is gated by `vim.g.disable_autoformat` and `vim.b[buf].disable_autoformat` (toggle: `<leader>uf` → `utils.toggle_autoformat`). `zsh` is explicitly skipped. Formatters per filetype: `stylua` (lua), `prettierd`/`prettier` (json/yaml/markdown), `shfmt` (sh/bash), `terraform_fmt`.
 - **Linting** is in `lua/plugins/nvim-lint.lua`. Runs on `BufWritePost`/`BufReadPost`/`InsertLeave`. Shellcheck linters are registered only if `shellcheck` is on `$PATH`.
-- **Shared toggles** live in `lua/utils.lua` (spell, cursorcolumn, mouse, autoformat, snippet list). New toggles belong here, not inline in `keymaps.lua`.
+- **Shared toggles** live in `lua/utils.lua` (spell, cursorcolumn, mouse, autoformat). New toggles belong here, not inline in `keymaps.lua`.
 - **Filetype overrides** go under `after/ftplugin/<ft>.lua`. Neovim resolves the filename against the buffer's `&filetype`, so a typo silently disables the override.
 - **Leader** is space (set in `options.lua` BEFORE plugins load — required by `lazy.nvim`).
 
