@@ -24,9 +24,9 @@ prompt_install() {
         ;;
       nvim)
         echo "Installing $pkg_name..."
-        curl -Lso /tmp/nvim-linux64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-        sudo tar -zxf /tmp/nvim-linux64.tar.gz -C /opt/
-        sudo ln -sf /opt/nvim-linux64/bin/nvim /usr/local/bin/
+        curl -Lso /tmp/nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+        sudo tar -zxf /tmp/nvim-linux-x86_64.tar.gz -C /opt/
+        sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/
         ;;
       go)
         echo "Installing $pkg_name..."

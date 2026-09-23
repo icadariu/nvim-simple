@@ -3,7 +3,7 @@ return {
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    cmd = { "ConformInfo", "Format" },
+    cmd = "ConformInfo",
     keys = {
       {
         "<leader>cf",
@@ -23,7 +23,7 @@ return {
         if vim.bo[buf].filetype == "zsh" then
           return
         end
-        return { timeout_ms = 1500, lsp_fallback = false }
+        return { timeout_ms = 1500, lsp_format = "never" }
       end,
       formatters_by_ft = {
         lua = { "stylua" },
@@ -37,10 +37,10 @@ return {
       },
       formatters = {
         yamlfmt = {
-          -- K8s-friendly: 2-space indent, preserve comments, keep multi-doc separators
+          -- K8s-friendly: 2-space indent, preserve comments
           prepend_args = {
             "-formatter",
-            "indent=2,retain_line_breaks=true,scan_folded_as_literal=true,include_document_start=true",
+            "indent=2,retain_line_breaks=true,scan_folded_as_literal=true",
           },
         },
         -- optional: configure shfmt (uncomment to force 2-space indent)

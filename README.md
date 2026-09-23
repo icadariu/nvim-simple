@@ -20,6 +20,7 @@
 ### File & Window Management
 
 - **Find Files**: `<leader>f` opens Telescope to find files.
+- **File Explorer**: `<leader>e` opens `mini.files`.
 - **Buffers**:
   - Cycle: `<C-n>` (next) / `<C-p>` (prev)
   - Jump: `<leader>1` through `<leader>4`
@@ -38,7 +39,7 @@
   - Delete: `gsd` + char
   - Replace: `gsr` + old_char + new_char
 - **Keymaps**: `<leader>fk` to search keymaps via Telescope.
-- **Auto-trim**: Trailing whitespace is automatically removed on save.
+- **Auto-trim**: Trailing whitespace is automatically removed on save (skipped for markdown/diff and when auto-format is toggled off).
 
 ## Installation
 

@@ -51,5 +51,5 @@ We've implemented several toggles for a cleaner experience:
 ## 5. Formatting & Linting
 
 - **Format current buffer**: `<leader>cf`.
-- **Formatting status**: Trailing whitespace is automatically trimmed on save unless auto-format is toggled off (`<leader>uf`).
+- **Formatting status**: Trailing whitespace is automatically trimmed on save unless auto-format is toggled off (`<leader>uf`). Markdown and diff buffers are never trimmed.
 - **Linters**: Linters run automatically on save (YAML, Docker, Markdown, etc.).

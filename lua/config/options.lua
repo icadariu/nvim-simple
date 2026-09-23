@@ -78,7 +78,12 @@ vim.opt.foldenable = true
 -- Trim trailing whitespace on save
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
-  callback = function()
+  callback = function(args)
+    local buf = args.buf
+    -- markdown: trailing double-space is a hard line break; diff: whitespace is content
+    if not vim.bo[buf].modifiable or vim.g.disable_autoformat or vim.b[buf].disable_autoformat or vim.tbl_contains({ "markdown", "diff" }, vim.bo[buf].filetype) then
+      return
+    end
     local save_cursor = vim.fn.getpos "."
     vim.cmd [[%s/\s\+$//e]]
     vim.fn.setpos(".", save_cursor)
@@ -99,6 +104,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })

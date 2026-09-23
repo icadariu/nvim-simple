@@ -3,7 +3,7 @@ local vkms = vim.keymap.set
 
 vkms("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 vkms("n", "<leader>bq", "<cmd>bp|bd #<CR>", { desc = "Close Buffer; Retain Split" })
-vkms("n", "<leader>cf", '<cmd>let @+ = expand("%")<CR>', { desc = "Copy File Name" })
+vkms("n", "<leader>cn", '<cmd>let @+ = expand("%")<CR>', { desc = "Copy File Name" })
 vkms("n", "<leader>cp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Copy File Path" })
 vkms("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
 vkms("n", "<leader>QQ", "<cmd>qa!<cr>", { desc = "Quit All" })
@@ -66,12 +66,14 @@ vkms("i", "<A-h>", "<Left>", { desc = "Left", noremap = true, silent = true })
 vkms("i", "<A-l>", "<Right>", { desc = "Right", noremap = true, silent = true })
 vkms("n", "[q", vim.cmd.cprev, { desc = "Prev quickfix" })
 vkms("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
-vkms("n", "==", "ggVG", { desc = "Select whole file" })
+vkms("n", "<leader>a", "ggVG", { desc = "Select whole file" })
 vkms("n", "J", "mzJ`z", { desc = "Join keep pos" })
 vkms("n", "n", "nzzzv", { desc = "Next match centered" })
 vkms("n", "N", "Nzzzv", { desc = "Prev match centered" })
-vkms({ "n", "i" }, "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
-vkms({ "n", "i" }, "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vkms("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
+vkms("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vkms("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", { desc = "Move line down" })
+vkms("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", { desc = "Move line up" })
 vkms({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 vkms({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
@@ -82,10 +84,15 @@ vkms("n", "Q", "<nop>", { desc = "Disable Q" })
 vkms("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line diagnostics" })
 vkms("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Diagnostics to loclist" })
 local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
   severity = severity and vim.diagnostic.severity[severity] or nil
   return function()
-    go { severity = severity }
+    vim.diagnostic.jump {
+      count = next and 1 or -1,
+      severity = severity,
+      on_jump = function(_, bufnr)
+        vim.diagnostic.open_float { bufnr = bufnr, scope = "cursor", focus = false }
+      end,
+    }
   end
 end
 vkms("n", "]d", diagnostic_goto(true), { desc = "Next diagnostic" })

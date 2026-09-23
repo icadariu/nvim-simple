@@ -14,14 +14,19 @@ return {
         json = { "jsonlint" },
         sh = { "shellcheck" },
         bash = { "shellcheck" },
-        zsh = { "shellcheck" },
       }
 
       lint.linters_by_ft = {}
       for ft, linters in pairs(desired) do
         local present = {}
         for _, name in ipairs(linters) do
-          if vim.fn.executable(name) == 1 then
+          -- linter name != binary (terraform_validate -> terraform, ansible_lint -> ansible-lint)
+          local linter = lint.linters[name]
+          if type(linter) == "function" then
+            linter = linter()
+          end
+          local cmd = type(linter.cmd) == "function" and linter.cmd() or linter.cmd
+          if vim.fn.executable(cmd) == 1 then
             table.insert(present, name)
           end
         end
