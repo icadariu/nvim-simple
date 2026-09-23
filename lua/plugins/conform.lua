@@ -3,7 +3,7 @@ return {
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    cmd = { "ConformInfo", "Format" },
+    cmd = "ConformInfo",
     keys = {
       {
         "<leader>cf",
@@ -23,7 +23,7 @@ return {
         if vim.bo[buf].filetype == "zsh" then
           return
         end
-        return { timeout_ms = 1500, lsp_fallback = false }
+        return { timeout_ms = 1500, lsp_format = "never" }
       end,
       formatters_by_ft = {
         lua = { "stylua" },
