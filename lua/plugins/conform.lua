@@ -37,10 +37,10 @@ return {
       },
       formatters = {
         yamlfmt = {
-          -- K8s-friendly: 2-space indent, preserve comments, keep multi-doc separators
+          -- K8s-friendly: 2-space indent, preserve comments
           prepend_args = {
             "-formatter",
-            "indent=2,retain_line_breaks=true,scan_folded_as_literal=true,include_document_start=true",
+            "indent=2,retain_line_breaks=true,scan_folded_as_literal=true",
           },
         },
         -- optional: configure shfmt (uncomment to force 2-space indent)
