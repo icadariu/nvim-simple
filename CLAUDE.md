@@ -12,7 +12,7 @@ Boot path: `init.lua` disables ruby/perl providers, bootstraps `lazy.nvim`, then
 
 1. `require "config.options"` — `vim.opt.*` settings, autocmds for trim-on-save and yank-highlight, spellfile path.
 2. `require "config.keymaps"` — all custom keymaps. Pulls toggles from `lua/utils.lua`.
-3. `require "config.global"` — `vim.g.*` and the `:CheckDuplicates` user command.
+3. `require "config.global"` — globals (currently only a commented-out startup hint).
 4. `lazy.setup("plugins", ...)` — `lazy.nvim` **auto-discovers every `lua/plugins/*.lua`**. Each file returns a single plugin spec (or list of related specs). To add a plugin, drop a new file in `lua/plugins/`; do not register it elsewhere.
 
 Cross-cutting wiring worth knowing:
@@ -40,7 +40,7 @@ nvim --headless "+checkhealth" +qa    # sanity check (noisy; scan for ERROR)
 stylua --check .                       # lint formatting without writing
 ```
 
-Then open Neovim interactively and exercise the affected feature. For a keymap change, `:Telescope keymaps` (`<leader>fk`) or `:CheckDuplicates` to detect collisions.
+Then open Neovim interactively and exercise the affected feature. For a keymap change, `:Telescope keymaps` (`<leader>fk`) or `:checkhealth which-key` to detect overlapping/duplicate mappings.
 
 ## Lockfile workflow
 
