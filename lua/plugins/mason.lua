@@ -7,7 +7,7 @@ return {
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    event = "VeryLazy",
+    lazy = false, -- installs are triggered on VimEnter; VeryLazy fires after it, so nothing was ever installed
     dependencies = { "williamboman/mason.nvim" },
     opts = {
       ensure_installed = {
