@@ -17,6 +17,7 @@ require("lazy").setup("plugins", {
   defaults = { lazy = true },
   checker = { enabled = true, notify = false },
   change_detection = { notify = false },
+  rocks = { enabled = false }, -- no plugin needs luarocks; silences the hererocks healthcheck error
   install = { colorscheme = { "gruvbox", "habamax" } },
   performance = {
     rtp = {
