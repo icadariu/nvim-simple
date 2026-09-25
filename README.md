@@ -45,6 +45,7 @@
 
 ### External Dependencies
 
+- Neovim >= 0.12 (required by the nvim-treesitter `main` branch)
 - Basic utils: `git`, `make`, `unzip`, C Compiler (`gcc`)
 - [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 - Clipboard tool (xclip/xsel/win32yank or other depending on platform)
