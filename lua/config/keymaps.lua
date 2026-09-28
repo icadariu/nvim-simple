@@ -23,6 +23,18 @@ vkms("n", "<leader>x", ":bd<CR>", { desc = "Close current buffer", noremap = tru
 vkms({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" })
 vkms({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to blackhole" })
 
+-- Change ops go to register z instead of the system clipboard (unnamedplus); an explicit register still wins
+local change_to_z = function(key)
+  return function()
+    local reg = vim.v.register
+    return (reg == '"' or reg == "+") and '"z' .. key or key
+  end
+end
+vkms({ "n", "x" }, "c", change_to_z "c", { desc = "Change (to register z)", expr = true })
+vkms({ "n", "x" }, "C", change_to_z "C", { desc = "Change to EOL (to register z)", expr = true })
+vkms("n", "<leader>p", [["zp]], { desc = "Paste last changed text (register z)" })
+vkms("n", "<leader>P", [["zP]], { desc = "Paste last changed text before (register z)" })
+
 -- Spell helpers
 vkms("n", "<leader>sa", "zg", { desc = "Spell add" })
 vkms("n", "<leader>ss", "z=", { desc = "Spell suggest" })
