@@ -41,6 +41,18 @@
 - **Keymaps**: `<leader>fk` to search keymaps via Telescope.
 - **Auto-trim**: Trailing whitespace is automatically removed on save (skipped for markdown/diff and when auto-format is toggled off).
 
+### Clipboard & Registers
+
+Yank, delete and paste use the system clipboard (`clipboard=unnamedplus`). Change operations are the exception, so text copied outside Neovim (e.g. from a browser) survives a `cw`:
+
+- **Change** (`c`, `cc`, `cw`, `ciw`, `C`, visual `c`): the replaced text goes to register `z`, not the clipboard. An explicit register still wins (`"acw` → `a`, `"+cw` → clipboard).
+- **Paste clipboard** (e.g. browser text): `p` / `P`, or `<C-r>+` in insert mode.
+- **Paste last changed text** (register `z`): `<leader>p` / `<leader>P`, or `<C-r>z` in insert mode.
+- **Paste over selection without overwriting**: visual `<leader>p`.
+- **Delete to black hole**: `<leader>d` (nothing is stored).
+- **Yank to clipboard**: `<leader>y` / `<leader>Y` (line).
+- `d`, `x`, `s`, `S` and `y` still write to the clipboard and replace its content.
+
 ## Installation
 
 ### External Dependencies
